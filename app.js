@@ -3,6 +3,7 @@ var btns = document.querySelectorAll('.btn');
 var player = 'X';
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
+        document.querySelector('.array-div').style.pointerEvents = 'none';
         if (btn.innerText === '')
             btn.innerText = 'O';
         player = 'O';
@@ -10,12 +11,13 @@ btns.forEach((btn) => {
         checkWin() ? reload() : '';
         setTimeout(() => {
             boot();
-        }, 700);
+        }, 500);
     });
 
 });
 
 function boot() {
+    document.querySelector('.array-div').style.pointerEvents = 'auto';
     player = 'X';
     let checkk = true;
     for (let i = 0; i < 8; i += 3) {
